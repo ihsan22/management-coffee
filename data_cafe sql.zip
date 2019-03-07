@@ -1,0 +1,302 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 13, 2017 at 09:54 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `data_cafe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chatting`
+--
+
+CREATE TABLE `chatting` (
+  `id` int(11) NOT NULL,
+  `from_us` varchar(50) NOT NULL,
+  `pesan` text NOT NULL,
+  `sent_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chatting`
+--
+
+INSERT INTO `chatting` (`id`, `from_us`, `pesan`, `sent_on`) VALUES
+(26, '9', 'kiban', '2017-06-03 17:24:21'),
+(27, '9', 'oi', '2017-06-03 17:24:23'),
+(28, '9', 'oi', '2017-06-03 17:30:39'),
+(29, '9', 'kiban', '2017-06-03 17:30:43'),
+(30, '9', 'oi', '2017-06-03 17:37:53'),
+(31, '9', 'kiban', '2017-06-03 17:47:01'),
+(32, '9', 'bereh atra nyo', '2017-06-03 17:47:05'),
+(33, '9', 'atat gepap keh', '2017-06-03 17:47:11'),
+(34, '9', 'kiban', '2017-06-03 17:48:40'),
+(35, '10', 'oi', '2017-06-03 17:50:17'),
+(36, '10', 'hah', '2017-06-03 17:50:19'),
+(37, '10', 'man awak drokenah bereh', '2017-06-03 17:50:27'),
+(38, '10', 'slow awakkah', '2017-06-03 17:53:21'),
+(39, 'safrul1@gmail.com', 'kiban', '2017-06-03 18:20:40'),
+(40, 'safrul1@gmail.com', 'oi', '2017-06-03 18:20:43'),
+(41, 'safrul1@gmail.com', 'oi', '2017-06-03 18:20:46'),
+(42, '10', 'selow kah', '2017-06-03 18:21:27'),
+(43, '11', 'kiban', '2017-06-05 08:58:55'),
+(44, '11', 'slow', '2017-06-05 08:58:58'),
+(45, 'safrul1@gmail.com', 'oi', '2017-06-05 08:59:33'),
+(46, 'safrul1@gmail.com', 'joj', '2017-06-05 08:59:37'),
+(47, 'safrul1@gmail.com', 'kiban', '2017-06-06 08:05:36'),
+(48, 'safrul1@gmail.com', 'kiban', '2017-06-06 08:09:08'),
+(49, '12', 'kiban', '2017-06-06 08:10:44'),
+(50, '12', 'oi', '2017-06-06 08:10:50'),
+(51, 'safrul1@gmail.com', 'wahyu', '2017-06-06 08:26:51'),
+(52, '13', 'iya', '2017-06-06 08:27:06'),
+(53, '14', 'hah', '2017-06-09 20:14:42'),
+(54, '14', 'oi', '2017-06-09 20:14:45'),
+(55, '14', 'hai', '2017-06-09 20:14:56'),
+(56, '14', 'asdsa', '2017-06-09 20:19:19'),
+(57, '15', 'njn', '2017-06-13 05:34:46'),
+(58, '16', 'oi', '2017-06-13 05:56:18'),
+(59, '16', 'hhh', '2017-06-13 06:21:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `karyawan`
+--
+
+CREATE TABLE `karyawan` (
+  `nama` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` varchar(10) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `karyawan`
+--
+
+INSERT INTO `karyawan` (`nama`, `email`, `password`, `tanggal_lahir`, `jenis_kelamin`, `status`) VALUES
+('asdh', 'asda@sfjh', '123456', '2017-06-05', 'Male', 'lock'),
+('asdh', 'asjdnj@hjsdha', '123456', '2017-06-05', 'Male', 'lock'),
+('oiasf', 'dsfds@dfs', '123456', '2017-06-05', 'Male', 'lock'),
+('ihsan', 'ihsan@gmail.com', 'ihsan22', '2017-06-05', 'Male', 'lock'),
+('kameng', 'kameng@gmail.com', '123456', '2017-06-05', 'Male', 'lock'),
+('maksal', 'maksal@gmail.com', 'maksal', '2017-06-01', 'Male', 'lock'),
+('mimin', 'mimin@gmail.com', 'rahasia', '2017-06-06', 'Male', 'lock'),
+('safrul', 'safrul1@gmail.com', 'safrul', '2017-05-31', 'Male', 'unlock'),
+('safrul', 'safrul@gmail.com', 'safrul', '2017-05-31', 'Male', 'lock'),
+('wahyu', 'wahyu@gmail.com', 'wahyu23', '2017-06-05', 'Male', 'lock');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `no_menu` varchar(4) NOT NULL,
+  `nama_menu` varchar(20) NOT NULL,
+  `jenis_menu` varchar(20) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `gambar` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`no_menu`, `nama_menu`, `jenis_menu`, `harga`, `gambar`) VALUES
+('MK01', 'Nasi Goreng', 'Makanan', 10000, 'food.png'),
+('MK02', 'Nasi Kampung', 'Makanan', 10000, 'food.png'),
+('MN01', 'Teh Dingin', 'Minuman', 5000, 'drink.png'),
+('MN02', 'Teh Dingin', 'Minuman', 4000, 'drink.png'),
+('MN03', 'Teh Dingin', 'Minuman', 5000, 'drink.png'),
+('MN04', 'Teh Dingin', 'Minuman', 5000, 'drink.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int(11) NOT NULL,
+  `no_meja` int(11) NOT NULL,
+  `waktu` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `no_meja`, `waktu`) VALUES
+(1, 1, '2017-05-17 11:45:42'),
+(2, 4, '2017-05-24 12:15:15'),
+(3, 3, '2017-05-24 12:15:31'),
+(4, 9, '2017-05-28 06:06:41'),
+(5, 14, '2017-05-30 05:14:37'),
+(6, 13, '2017-05-31 02:19:27'),
+(7, 17, '2017-05-31 02:23:39'),
+(8, 14, '2017-06-01 12:40:03'),
+(9, 12, '2017-06-03 11:06:53'),
+(10, 13, '2017-06-04 12:50:12'),
+(11, 5, '2017-06-05 03:58:44'),
+(12, 6, '2017-06-06 03:10:33'),
+(13, 3, '2017-06-06 03:23:38'),
+(14, 9, '2017-06-10 03:13:07'),
+(15, 0, '2017-06-13 12:31:22'),
+(16, 2, '2017-06-13 12:55:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemesanan`
+--
+
+CREATE TABLE `pemesanan` (
+  `id_pelanggan` int(11) NOT NULL,
+  `no_menu` varchar(4) NOT NULL,
+  `jumlah_pesan` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pelanggan`, `no_menu`, `jumlah_pesan`) VALUES
+(8, 'MK02', 1),
+(9, 'MK02', 1),
+(10, 'MK02', 1),
+(11, 'MK02', 1),
+(12, 'MK02', 1),
+(13, 'MK02', 2),
+(13, 'MN02', 1),
+(14, 'MK02', 1),
+(14, 'MK02', 1),
+(14, 'MK01', 1),
+(14, 'MN02', 1),
+(16, 'MK02', 1),
+(16, 'MK02', 1);
+
+--
+-- Triggers `pemesanan`
+--
+DELIMITER $$
+CREATE TRIGGER `rekap_pemesanan` AFTER DELETE ON `pemesanan` FOR EACH ROW INSERT INTO rekap (id_pelanggan,no_menu,jumlah_pesan,waktu_rekap)VALUES(OLD.id_pelanggan,OLD.no_menu,OLD.jumlah_pesan,SYSDATE())
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekap`
+--
+
+CREATE TABLE `rekap` (
+  `id_pelanggan` int(11) NOT NULL,
+  `no_menu` varchar(4) NOT NULL,
+  `jumlah_pesan` int(3) NOT NULL,
+  `waktu_rekap` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rekap`
+--
+
+INSERT INTO `rekap` (`id_pelanggan`, `no_menu`, `jumlah_pesan`, `waktu_rekap`) VALUES
+(15, 'MK02', 1, '2017-06-13 13:18:43'),
+(15, 'MK02', 1, '2017-06-13 13:18:43'),
+(15, 'MK02', 1, '2017-06-13 13:18:43');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `chatting`
+--
+ALTER TABLE `chatting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `karyawan`
+--
+ALTER TABLE `karyawan`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`no_menu`);
+
+--
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
+
+--
+-- Indexes for table `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  ADD KEY `fk_pemesanan` (`id_pelanggan`),
+  ADD KEY `fk_pemesanan_menu` (`no_menu`);
+
+--
+-- Indexes for table `rekap`
+--
+ALTER TABLE `rekap`
+  ADD KEY `fk_id_pelanggan` (`id_pelanggan`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `chatting`
+--
+ALTER TABLE `chatting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  ADD CONSTRAINT `fk_pemesanan` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`),
+  ADD CONSTRAINT `fk_pemesanan_menu` FOREIGN KEY (`no_menu`) REFERENCES `menu` (`no_menu`);
+
+--
+-- Constraints for table `rekap`
+--
+ALTER TABLE `rekap`
+  ADD CONSTRAINT `fk_id_pelanggan` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
